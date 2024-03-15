@@ -15,7 +15,7 @@ const Search = () => {
     const submitHandler = (e) => {
         e.preventDefault();
         if (input.length < 3) {
-            alert('더 입력하세오.');
+            alert('더 입력하세요.');
             return
         }
         setSearch(input);
@@ -35,26 +35,23 @@ const Search = () => {
 
     return (
         <>
-            <header>
-                <h1>
-                    SEARCH IMAGE<br />
-                    {search}
-                </h1>
-            </header>
-            <form onSubmit={submitHandler}>
-                <input type="text" onChange={inputHandler} />
-                <button>SEARCH</button>
-            </form>
-            <ul className="list">
-                {
-                    photo.map((it, idx) => {
-                        return (
-                            <li><img src={it.largeImageURL} alt="" /></li>
-                        )
-                    })
-                }
-            </ul>
-            <footer>&copy; WOO</footer>
+            <section className="search">
+                <div className="inner search_box">
+                    <form onSubmit={submitHandler}>
+                        <input type="text" placeholder="키워드를 입력하세요." onChange={inputHandler} />
+                        <button> search</button>
+                    </form>
+                    <ul className="list">
+                        {
+                            photo.map((it, idx) => {
+                                return (
+                                    <li><img src={it.largeImageURL} alt="" /></li>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
+            </section>
         </>
     )
 }
